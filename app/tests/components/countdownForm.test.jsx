@@ -7,7 +7,7 @@ var $ = require('jQuery');
 var CountdownForm = require('CountdownForm');
 
 describe('CountdownForm', () => {
-  it('should exist', () =>{
+  it('should exist', () => {
     expect(CountdownForm).toExist();
   });
 
@@ -22,12 +22,12 @@ describe('CountdownForm', () => {
     expect(spy).toHaveBeenCalledWith(109);
   });
 
-  it('should not call onSetCountdown if invalid seconds are entered', () => {
+  it('should not call onSetCountdown if invalid seconds entered', () => {
     var spy = expect.createSpy();
     var countdownForm = TestUtils.renderIntoDocument(<CountdownForm onSetCountdown={spy}/>);
     var $el = $(ReactDOM.findDOMNode(countdownForm));
 
-    countdownForm.refs.seconds.value = 'alpo2';
+    countdownForm.refs.seconds.value = '109b';
     TestUtils.Simulate.submit($el.find('form')[0]);
 
     expect(spy).toNotHaveBeenCalled();
